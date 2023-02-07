@@ -24,10 +24,11 @@ const App = () => {
         <Router>
             <div id="main">
                 <Switch>
-                    <Route exact path="/"><Home /><LocatonDisplay /></Route>
-                    <Route exact path="/about"><About /><LocatonDisplay /></Route>
-                    <Route exact path="/*"><Error /><LocatonDisplay /></Route>
+                    <Route exact path="/"><Home /></Route>
+                    <Route exact path="/about"><About /></Route>
+                    <Route exact path="/*"><Error /></Route>
                 </Switch>
+                <LocatonDisplay />
             </div>
         </Router>
     );

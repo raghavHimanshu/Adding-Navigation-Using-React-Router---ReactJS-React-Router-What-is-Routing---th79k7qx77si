@@ -3,9 +3,9 @@ import { useLocation } from 'react-router-dom';
 function LocatonDisplay() {
     const location = useLocation();
   return (
-    <div>
+    // <div>
           <h2 data-testid="location-display">{location.pathname}</h2>
-    </div>
+    // </div>
   )
 }
 

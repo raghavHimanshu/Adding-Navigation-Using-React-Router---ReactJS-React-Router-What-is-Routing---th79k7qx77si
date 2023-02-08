@@ -15,10 +15,53 @@
 import React from "react";
 import "../styles/App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from './Home';
-import About from './About';
-import Error from './Error';
-import LocatonDisplay from "./LocatonDisplay";
+import { Link,useLocation } from 'react-router-dom';
+
+const Home = () => {
+    return (
+        <div>
+            <nav>
+                <ul>
+                    <li>
+                        <Link to="/">Home</Link>
+                      </li>
+                  </ul>
+                <ul>
+                    <li>
+                        <Link to="/about">About</Link>
+                      </li>
+                  </ul>
+            </nav>
+            <h2>You are home</h2>
+      </div>
+    )
+}
+
+const About = () => {
+    return (
+      <div>
+            <h2>You are on the about page</h2>
+            <hr />
+        </div>
+    )
+}
+  
+function Error() {
+    return (
+      <div>
+        <h2>No match</h2>
+      </div>
+    )
+}
+  
+function LocatonDisplay() {
+    const location = useLocation();
+  return (
+          <h2 data-testid="location-display">{location.pathname}</h2>
+  )
+}
+
+  
 const App = () => {
     return (
         <Router>

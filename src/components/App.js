@@ -57,7 +57,7 @@ function Error() {
 function LocatonDisplay() {
     const location = useLocation();
   return (
-          <h2 data-testid="location-display">{location.pathname}</h2>
+          <h2 >{location.pathname}</h2>
   )
 }
 
@@ -71,7 +71,7 @@ const App = () => {
                     <Route exact path="/about"><About /></Route>
                     <Route exact path="/*"><Error /></Route>
                 </Switch>
-                <LocatonDisplay />
+                <LocatonDisplay data-testid="location-display" />
             </div>
         </Router>
     );

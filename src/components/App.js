@@ -54,7 +54,7 @@ function Error() {
     )
 }
   
-function LocatonDisplay() {
+function LocationDisplay() {
     const location = useLocation();
   return (
           <h2 >{location.pathname}</h2>
@@ -71,7 +71,7 @@ const App = () => {
                     <Route exact path="/about"><About /></Route>
                     <Route exact path="/*"><Error /></Route>
                 </Switch>
-                <LocatonDisplay data-testid="location-display" />
+                <LocationDisplay data-testid="location-display" />
             </div>
         </Router>
     );

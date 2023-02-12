@@ -1,81 +1,34 @@
-// import React, {Component, useState} from "react";
-// import '../styles/App.css';
-
-// class App extends Component {
-//     render() {
-
-//         return(
-//             <div id="main">
-//                {/* Do not remove the main div */}
-//             </div>
-//         )
-//     }
-// }
-
-import React from "react";
+import React, { Component, useState } from "react";
 import "../styles/App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Link,useLocation } from 'react-router-dom';
+import { Link, Route, Switch, useLocation } from "react-router-dom";
+import LocationDisplayComp from "./LocationDisplay";
+function About() {
+  return <div>You are on the about page.</div>;
+}
+function Home() {
+  return <div>You are home.</div>;
+}
 
-const Home = () => {
+function Invalid() {
+  return <div>No match</div>;
+}
+
+class App extends Component {
+  render() {
     return (
-        <div>
-            <nav>
-                <ul>
-                    <li>
-                        <Link to="/">Home</Link>
-                      </li>
-                  </ul>
-                <ul>
-                    <li>
-                        <Link to="/about">About</Link>
-                      </li>
-                  </ul>
-            </nav>
-            <h2>You are home</h2>
+      <div id="main">
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/" component={Invalid} />
+        </Switch>
+        <LocationDisplayComp />
       </div>
-    )
-}
-
-const About = () => {
-    return (
-      <div>
-            <h2>You are on the about page</h2>
-            <hr />
-        </div>
-    )
-}
-  
-function Error() {
-    return (
-      <div>
-        <h2>No match</h2>
-      </div>
-    )
-}
-  
-function LocationDisplay() {
-    const location = useLocation();
-  return (
-          <h2 data-testid="location-display" >{location.pathname}</h2>
-  )
-}
-
-  
-const App = () => {
-    return (
-        <Router>
-            <div id="main">
-                <Switch>
-                    <Route exact path="/"><Home /></Route>
-                    <Route exact path="/about"><About /></Route>
-                    <Route exact path="/*"><Error /></Route>
-                </Switch>
-                <LocationDisplay />
-            </div>
-        </Router>
     );
+  }
 }
-
 
 export default App;
+export const LocationDisplay = LocationDisplayComp;
